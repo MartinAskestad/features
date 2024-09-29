@@ -1,0 +1,13 @@
+{
+    "name": "VIM",
+    "id": "vim",
+    "version": "0.0.1",
+    "description": "VIM, from source",
+    "options": {
+        "version": {
+            "type": "string",
+            "default": "latest",
+            "description": "The version of VIM to build"
+        }
+    }
+}
