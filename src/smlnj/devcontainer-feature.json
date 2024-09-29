@@ -1,0 +1,13 @@
+{
+  "name": "Standard-ML of New Jersey",
+  "id": "smlnj",
+  "version": "1.0.0",
+  "description": "Standard-ML of New jersey",
+  "options": {
+    "version": {
+      "type": "string",
+      "default": "110.99.6",
+      "description": "The version of the compiler"
+    }
+  }
+}
