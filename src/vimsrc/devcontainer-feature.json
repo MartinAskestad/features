@@ -2,12 +2,57 @@
     "name": "VIM",
     "id": "vim",
     "version": "0.0.1",
-    "description": "VIM, from source",
+    "description": "VIM, from source.",
     "options": {
         "version": {
             "type": "string",
-            "default": "latest",
-            "description": "The version of VIM to build"
+            "default": "9.1.0327",
+            "description": "The version of VIM to build."
+        },
+        "enable_gui": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable GUI Version of VIM."
+        },
+        "enable_sound": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable sound."
+        },
+        "enable_perl": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable Perl interpreter."
+        },
+        "enable_python": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable Python interpreter."
+        },
+        "enable_python3": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable Python 3 interpreter."
+        },
+        "enable_ruby": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable Ruby interpreter."
+        },
+        "enable_lua": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable Lua interpreter."
+        },
+        "enable_tcl": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable Tcl interpreter."
+        },
+        "enable_mzscheme": {
+            "type": "boolean",
+            "default": false,
+            "description": "Enable MZ Scheme interpreter."
         }
     }
 }

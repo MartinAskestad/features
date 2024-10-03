@@ -1,0 +1,36 @@
+{
+    "plain": {
+        "image": "ubuntu",
+        "features": {
+            "vimsrc": {
+                "version": "9.1.0327"
+            }
+        }
+    },
+    "lua": {
+        "image": "ubuntu",
+        "features": {
+            "vimsrc": {
+                "version": "9.1.0327",
+                "enable_lua": true
+            }
+        }
+    },
+    "python": {
+        "image": "ubuntu",
+        "features": {
+            "vimsrc": {
+                "version": "9.1.0327",
+                "enable_python3": true
+            }
+        }
+    },
+    "eight": {
+        "image": "ubuntu",
+        "features": {
+            "vimsrc": {
+                "version": "8.2.5172"
+            }
+        }
+    }
+}
