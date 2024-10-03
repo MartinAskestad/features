@@ -16,6 +16,38 @@ RACKET_VERSION="8.5"
 
 set -e
 
+unset_false_variables() {
+    if [ "${VIM_ENABLE_GUI}" = "false" ]; then
+        unset VIM_ENABLE_GUI
+    fi
+    if [ "${VIM_ENABLE_SOUND}" = "false" ]; then
+        unset VIM_ENABLE_SOUND
+    fi
+    if [ "${VIM_ENABLE_PERL}" = "false" ]; then
+        unset VIM_ENABLE_PERL
+    fi
+    if [ "${VIM_ENABLE_PYTHON}" = "false" ]; then
+        unset VIM_ENABLE_PYTHON
+    fi
+    if [ "${VIM_ENABLE_PYTHON3}" = "false" ]; then
+        unset VIM_ENABLE_PYTHON3
+    fi
+    if [ "${VIM_ENABLE_RUBY}" = "false" ]; then
+        unset VIM_ENABLE_RUBY
+    fi
+    if [ "${VIM_ENABLE_LUA}" = "false" ]; then
+        unset VIM_ENABLE_LUA
+    fi
+    if [ "${VIM_ENABLE_TCL}" = "false" ]; then
+        unset VIM_ENABLE_TCL
+    fi
+    if [ "${VIM_ENABLE_MZSCHEME}" = "false" ]; then
+        unset VIM_ENABLE_MZSCHEME
+    fi
+}
+
+unset_false_variables
+
 echo "Download, build and install VIM"
 
 if [ "$(id -u)" -ne 0 ]; then
@@ -30,7 +62,7 @@ export DEBIAN_FRONTEND=noninteractive
 apt_get_update() {
     case "${ID}" in
         debian|ubuntu)
-            if [ "$(find /var/lib/apt/lists/* | wc -l)" = "0" ]; then
+            if [ ! -d "/var/lib/apt/lists" ] || [ -z "$(ls -A /var/lib/apt/lists/)" ]; then
                 echo "Running apt-get update..."
                 apt-get update -y
             fi
@@ -144,14 +176,6 @@ requested_version="${VIM_VERSION}"
 version_list="$(curl -sSL -H "Accept: application/vnd.github.v3+json" "https://api.github.com/repos/vim/vim/tags" | grep -o '"name": "v[0-9][0-9]*\.[0-9][0-9]*\.[0-9][0-9]*"' | sed 's/"name": "v//;s/"//g' | sort -rV)"
 if [ "${requested_version}" = "latest" ]; then
     VIM_VERSION="$(echo "${version_list}" | head -n 1)"
-else
-    set +e
-    VIM_VERSION="$(echo "${version_list}" | grep -E -m 1 "^${requested_version//./\\.}([\\.\\s]|$)")"
-    set -e
-fi
-if [ -z "${VIM_VERSION}" ] || ! echo "${version_list}" | grep "^$(echo "${VIM_VERSION}" | sed 's/\./\\./g')$" > /dev/null 2>&1; then
-    echo "Invalid VIM version: ${requested_version}" >&2
-    exit 1
 fi
 
 echo "Downloading source for ${VIM_VERSION}..."
