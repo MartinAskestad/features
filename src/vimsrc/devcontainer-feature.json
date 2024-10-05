@@ -1,7 +1,7 @@
 {
-    "name": "VIM",
-    "id": "vim",
-    "version": "0.0.1",
+    "name": "VIM, from source",
+    "id": "vimsrc",
+    "version": "1.0.0",
     "description": "VIM, from source.",
     "options": {
         "version": {
