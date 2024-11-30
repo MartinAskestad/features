@@ -15,6 +15,7 @@ jobs:
         features:
           - smlnj
           - vimsrc
+          - mingw
         baseImage:
           - debian:latest
           - ubuntu:latest
