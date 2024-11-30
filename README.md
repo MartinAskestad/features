@@ -10,6 +10,7 @@ This project **Features** is a set of reusable 'features'. Quickly add a tool/cl
 
 * [vimsrc](src/vimsrc/README.md): Vim, from source, choose functions like lua or python.
 * [smlnj](src/smlnj/README.md): Standard-ML of New Jersey.
+* [mingw](src/mingw/README.md): MinGW-w64.
 
 ## Usage
 
